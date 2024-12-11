@@ -7,7 +7,7 @@ class Database {
         $this->conn = getDbConnection();
     }
     // Execute a query
-    public function query($sql) {
+    public  function query($sql) {
         return $this->conn->query($sql);
     }
 

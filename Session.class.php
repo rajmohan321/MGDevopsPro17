@@ -19,13 +19,3 @@ class Session{
         public static function isset($key){
             return isset($_SESSION[$key]);
         }
-        public static function get($key,$default = false){
-            if(Session::isset($key)){
-                return $_SESSION[$key];
-            }
-            else{
-                return $default;
-            }
-        }
-}
-?>

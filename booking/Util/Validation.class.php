@@ -15,6 +15,31 @@ class Validation{
 	// 		return true;
     //     else return false;
 	// }
+	static function validDate($date){
+		$regex = '/^\d{4}-\d{2}-\d{2}$/';
+		if (preg_match($regex, $date)) {
+			// Further validation to check if the date is valid (e.g., correct number of days for each month)
+			$dateArray = explode('-', $date);
+			$year = (int)$dateArray[0];
+			$month = (int)$dateArray[1];
+			$day = (int)$dateArray[2];
+	
+			// Check if the month is valid (1-12)
+			if ($month < 1 || $month > 12) {
+				return false;
+			}
+	
+			// Check if the day is valid for the given month
+			if (!checkdate($month, $day, $year)) {
+				return false;
+			}
+	
+			return true;
+		}
+	
+		return false;
+		
+	}
 	static function username($str){
 		// Must start with letter [A-Za-z]
 		// 6-8 characters  {5,8}

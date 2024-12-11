@@ -14,25 +14,34 @@ require_once('Models/User.php');
 // Initialize controllers
 $bookingController = new BookingController();
 $userController = new User();
-$startDate = $_POST['start_date'];
-$end_Date = $_POST['end_date'];
+$data = json_decode(file_get_contents("php://input"),true);
+if($data){
+    $action = $data['action'];
+    $user_id = $data['user_id'];
+    $agent_id = $data['agent_id'];
+    $service_id = $data['service_id'];
+    $booking_date = $data['booking_date'];
+    $start_date = $data['start_date'];
+    $end_date = $data['end_date'];   
+}
+
+
 
 // Routing example
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    if (isset($_POST['action'])) {
-        switch ($_POST['action']) {
+        switch ($action) {
             case 'create_booking':
-                $result = $bookingController->createsBooking($_POST['user_id'], $_POST['service_id'],$startDate,$end_Date);
+                $result = $bookingController->createsBooking($user_id, $agent_id,$service_id,$booking_date,$start_date,$end_date);
                 echo $result;
                 break;
 
             case 'view_bookings':
-                $bookings = $bookingController->viewsBookings($_POST['user_id']);
-                print_r($bookings);
+                $bookings = $bookingController->viewsBookings($user_id);
+               ?><pre><?php  echo json_encode($bookings,JSON_PRETTY_PRINT); ?></pre><?php 
                 break;
         }
     }
-}
+
 ?>
     
 </body>
