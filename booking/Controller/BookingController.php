@@ -30,8 +30,8 @@ class BookingController {
         echo "Booking created successfully with ID: " . json_encode($bookingId,JSON_PRETTY_PRINT);
     }
 
-    public function viewsBookings($User_id) {
-          $user_id =$User_id;
+    public function viewsBookings() {
+    
           
         // foreach ($bookings as $booking) {
         //     echo "Booking ID: " . $booking['id'] . "<br>";

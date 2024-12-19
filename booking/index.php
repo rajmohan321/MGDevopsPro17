@@ -36,7 +36,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 break;
 
             case 'view_bookings':
-                $bookings = $bookingController->viewsBookings($user_id);
+                $bookings = $bookingController->viewsBookings();
                ?><pre><?php  echo json_encode($bookings,JSON_PRETTY_PRINT); ?></pre><?php 
                 break;
         }
