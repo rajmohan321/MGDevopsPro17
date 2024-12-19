@@ -1,8 +1,7 @@
 <?php
-require_once 'Models/Collecting.php';
-//require_once 'Models/User.php';
-require_once 'index.php';
-class ApiController {
+require_once 'Models/Collect_Data.php';
+
+class ApiController{
     
     private $bookingModel;
     
@@ -10,12 +9,6 @@ class ApiController {
         $this->bookingModel = new Booking();
     }
 
-    public function createsBooking() {
-      
-        // $bookingId = $this->bookingModel-> ;
-
-        // echo "Booking created successfully with ID: " . json_encode($bookingId,JSON_PRETTY_PRINT);
-    }
 
     public function viewsBookings() {
           
@@ -27,7 +20,7 @@ class ApiController {
         // }
         // return $bookings;
 
-          return ($this->bookingModel->get_guest_bill());
+           $this->bookingModel->get_guest_bill();
 
     }
    

@@ -15,8 +15,6 @@ class Availability {
         $stmt->execute();
         return $stmt->get_result()->fetch_assoc();
     }
-
-    // Check if a service is available with the agent for the specific dates
    
 }
 ?>
