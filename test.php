@@ -1,4 +1,15 @@
-<?php
+<!-- <?php
+$servername = "localhost";
+$username = "root";
+$password = "";
+$dbname = "mohan_newdb";
+
+$conn = new mysqli($servername, $username, $password, $dbname);
+
+// Check connection
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
 // Simulate a POST request with the 'action' parameter
 // $_SERVER['REQUEST_METHOD'] = "POST";
 // $_POST['action'] = 'get_inhouse_guestlist';
@@ -28,9 +39,37 @@
 //     exit;
 // }
 
-phpinfo();
+
+$customer_code = "CUST001";
+$sql = "SELECT max_room,max_adults,product_code FROM ibe_initial_settings WHERE customer_code = ?";
+if ($stmt = $conn->prepare($sql)) {
+    // Bind the parameters to the placeholders in the SQL query
+    $stmt->bind_param("s", $customer_code);  // "ss" means both are strings
+
+    // Execute the query
+    $stmt->execute();
+
+    // Get the result of the query
+    $result = $stmt->get_result();
+
+// Initialize an empty array to store data
+$data = array();
+
+// Check if rows are returned
+if ($result->num_rows > 0) {
+    // Fetch rows and add them to the array
+    while ($row = $result->fetch_assoc()) {
+        $data[] = array(
+            'max_adult' => $row['max_adults'],
+            'max_room' => $row['max_room'],
+            'product_code'=>$row['product_code']
+        );
+    }
+}
+}
+var_dump($data);
 
 
 ?>
 
-
+ -->
