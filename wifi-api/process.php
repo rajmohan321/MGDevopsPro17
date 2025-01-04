@@ -1,22 +1,53 @@
 <?php
-session_start(); // Start the session
+include_once 'Session.class.php';
 
-// Get the raw POST data
-$rawData = file_get_contents("php://input");
-  // Log the raw data received
+// Second method like without javascript 
+Session::start();
+// session_start(); // Start the session
 
-// Decode the JSON data into a PHP associative array
-$data = json_decode($rawData, true);
+// Check if the form was submitted
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
-// If data is decoded successfully, store it in the session
-if ($data) {
+    // Get form data
+    // $first_name = $_POST['first_name'];
+    // $last_name = $_POST['last_name'];
+    // $email = $_POST['email'];
+    // $age = $_POST['age'];
+    // $password = $_POST['password'];
+    
+    Session::set('first_name',$_POST['first_name']);
+    Session::set('last_name',$_POST['last_name']);
+    Session::set('email',$_POST['email']);
+    Session::set('age',$_POST['age']);
+    Session::set('password',$_POST['password']);
 
-    $_SESSION['user_data'] = $data; // Store the data in the session
 
-    // Optionally send a response back to the client
-    echo json_encode(['status' => 'success', 'message' => 'Data received']);
+    // Redirect to action.php
+    header('Location: action.php');
+    exit();
 } else {
-    echo 'No valid data received from the client.';
+    // If the form is not submitted correctly, redirect back to the form page
+    header('Location: index.php');
+    exit();
 }
+
+
+// session_start(); // Start the session
+
+// // Get the raw POST data
+// $rawData = file_get_contents("php://input");
+//   // Log the raw data received
+
+// // Decode the JSON data into a PHP associative array
+// $data = json_decode($rawData, true);
+
+// // If data is decoded successfully, store it in the session
+// if ($data) {
+
+//     $_SESSION['user_data'] = $data; // Store the data in the session
+
+// } else {
+//     echo 'No valid data received from the client.';
+// }
 
 ?>
