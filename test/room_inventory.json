@@ -1,0 +1,101 @@
+
+  {
+  "OTA_HotelInvCountNotifRQ": {
+    "Version": "",
+    "Target": "Production",
+    "TimeStamp": "20151015T15:22:50",
+    "EchoToken": "abc1323",
+    "xmlns": "http://www.opentravel.org/OTA/2003/05",
+    "xmlns:xsd": "http://www.w3.org/2001/XMLSchema",
+    "xmlns:xsi": "http://www.w3.org/2001/XMLSchema-instance",
+    "POS": {
+      "Source": {
+        "RequestorID": {
+          "MessagePassword": "Avenues@123",
+          "ID": "HotelsAvenue"
+        }
+      }
+    },
+    "OTAName": "Booking.com",
+    "Inventories": {
+      "HotelName": "Demo Hotel",
+      "HotelCode": "Prop1001",
+      "Inventory": {
+        "StatusApplicationControl": {
+          "End": "2015-12-15",
+          "Start": "2015-10-16",
+          "InvTypeCode": "1234"
+        },
+        "InvCounts": {
+          "Sun": "True",
+          "Sat": "True",
+          "Fri": "True",
+          "Thur": "False",
+          "Weds": "False",
+          "Tue": "True",
+          "Mon": "True",
+          "InvCount": {
+            "Count": ""
+          },
+          "StopSell": "True",
+          "CloseOnArrival": "True",
+          "CloseOnDeparture": "True",
+          "CutOff": "3"
+        }
+      }
+    }
+  }
+}
+
+//sucess response 
+{
+  "OTA_HotelInvCountNotifRS": {
+    "xmlns:xsi": "http://www.w3.org/2001/XMLSchema-instance",
+    "xmlns:xsd": "http://www.w3.org/2001/XMLSchema",
+    "xmlns": "http://www.opentravel.org/OTA/2003/05",
+    "EchoToken": "",
+    "TimeStamp": "",
+    "Version": "",
+    "Success": {}
+  }
+}
+
+//error response 
+
+{
+  "OTA_HotelInvCountNotifRS": {
+    "EchoToken": "",
+    "TimeStamp": "",
+    "Version": "",
+    "Errors": {
+      "Error": {
+        "Code": "",
+        "Type": "",
+        "Status": "",
+        "ShortText": ""
+      }
+    }
+  }
+}
+
+// partial response 
+{
+  "OTA_HotelInvCountNotifRS": {
+    "xmlns:xsi": "http://www.w3.org/2001/XMLSchema-instance",
+    "xmlns:xsd": "http://www.w3.org/2001/XMLSchema",
+    "xmlns": "http://www.opentravel.org/OTA/2003/05",
+    "EchoToken": "",
+    "TimeStamp": "",
+    "Version": "",
+    "Partial": {}
+  }
+}
+
+
+//parameters request
+https://www.example.com/roominventoryupdate?Target=Production&EchoToken=abc1323&TimeStamp=20151015T15:22:50&ID=HotelsAvenue&MessagePassword=Avenues@123&HotelCode=Prop1001&InvTypeCode=1234&start_date=2015/10/16&end_date=2015/12/15
+
+// response parameters
+https://www.example.com//updateInventory?EchoToken=1234567890&TimeStamp=2025-01-20T15:30:00&Code=200&Type=Success&Status=Completed&ShortText=Inventoryupdatecompletedsuccessfully
+// response mandatory
+https://www.example.com//updateInventory?EchoToken=1234567890&TimeStamp=2025-01-20T15:30:00&ShortText=Inventoryupdatecompletedsuccessfully

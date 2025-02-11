@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF8"?> 
+<OTA_HotelInvCountNotifRQ Version="" Target="Production" 
+TimeStamp="20151015T15:22:50" EchoToken="abc1323" 
+xmlns="http://www.opentravel.org/OTA/2003/05" 
+xmlns:xsd="http://www.w3.org/2001/XMLSchema" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchemainstance"> 
+<POS> 
+<Source> 
+<RequestorID MessagePassword="Avenues@123" 
+ID="HotelsAvenue"/> 
+</Source> 
+</POS> 
+<OTAName>Booking.com</OTAName> 
+<Inventories HotelName="Demo Hotel" HotelCode="Prop1001"> 
+<Inventory> 
+<StatusApplicationControl End="2015-12-15" Start="2015-10-16" 
+InvTypeCode="1234"/> 
+<InvCounts Sun="True" Sat="True" Fri="True" Thur="False" Weds="False" 
+Tue="True" Mon="True"> 
+<InvCount Count=""/> 
+<StopSell>True</StopSell> 
+<CloseOnArrival>True</CloseOnArrival>
+<CloseOnDeparture>True</CloseOnDeparture> 
+ 
+<CutOff>3</CutOff> 
+ 
+</InvCounts> 
+ 
+</Inventory> 
+ 
+</Inventories> 
+ 
+</OTA_HotelInvCountNotifRQ> 

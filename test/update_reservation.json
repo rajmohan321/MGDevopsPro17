@@ -1,0 +1,15 @@
+/*response parameters*/
+https://api.example.com/?EchoToken=abcd1323&TimeStamp=20151015T15:22:50&ShortText=Reservationupdatefailed&ErrorText=InternalError
+
+
+/*request parameters*/
+https://example.com/updateReservation?EchoToken=abc1323&TimeStamp=20151015T15:22:50&ResStatus=Modify&CreateDateTime=2015-10-01T10:00:00&
+Reservation_ID=12345&
+RoomStay_HotelName=Demo%20Hotel&RoomStay_HotelCode=Prop1001&RoomStay_RatePlanCode=789&
+RoomStay_NumberOfUnits=2&RoomStay_RoomTypeCode=DeluxeRoom&RoomStay_Name=Deluxe%20Room&
+RoomStay_AgeQualifyingCode=10&RoomStay_RPH=1&RoomStay_StartDate=2025-02-01&
+RoomStay_EndDate=2025-02-07&RoomStay_EffectiveDate=2025-02-01&RoomStay_AmountBeforeTax=200.0&
+RoomStay_TotalAmountBeforeTax=400.0&ResGuestRPH=1&ResGuest_GivenName=John&ResGuest_Surname=Doe&
+ResGlobalInfo_AmountBeforeTax=400.0&ResGlobalInfo_CurrencyCode=USD&
+&ResGlobalInfo_TaxInclusive=YesorNO&
+ResGlobalInfo_PayAtHotel=Yes/No
